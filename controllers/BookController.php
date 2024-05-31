@@ -10,6 +10,22 @@ class BookController
     public function home()
     {
         $books = $this->BookModel->getBooks();
-        return $books;
+        include './views/index.php';
+    }
+
+    public function add()
+    {
+        if (isset($_POST['add'])) {
+            $title = $_POST['title'];
+            $date = $_POST['date'];
+            $image = $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], './public/img/' . $image);
+            $author = $_POST['author'];
+            $publisher = $_POST['publisher'];
+            $success =  $this->BookModel->insertBook($title, $image, $date, $author, $publisher);
+            if ($success) {
+                header('location:./index.php');
+            }
+        }
     }
 }

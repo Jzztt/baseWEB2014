@@ -15,5 +15,11 @@ class Book
         $results = $this->db->query($query)->fetchAll();
         return $results;
     }
+    public function insertBook($title, $image, $date, $publisher, $author)
+    {
+        $query = "INSERT INTO books (title,cover_image,date,publisher,author) VALUES ('$title','$image','$date','$publisher','$author')";
+        if ($this->db->exec($query)) {
+            return true;
+        }
+    }
 }
-?>

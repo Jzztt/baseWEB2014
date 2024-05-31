@@ -6,7 +6,10 @@ $bookController = new BookController();
 switch ($action) {
     case 'index':
         $books = $bookController->home();
-        include './views/index.php';
+        break;
+
+    case 'add':
+        $books = $bookController->add();
         break;
     default:
         echo "action not found";
