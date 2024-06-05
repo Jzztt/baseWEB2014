@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <form method="POST" action="../index.php?action=add" enctype="multipart/form-data">
+
+    <form method="POST" action="?action=create" enctype="multipart/form-data">
         <div class="fom-control">
             <label for="Title">Title</label>
             <input type="text" name="title">

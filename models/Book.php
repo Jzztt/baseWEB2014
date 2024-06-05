@@ -22,4 +22,10 @@ class Book
             return true;
         }
     }
+    public function deleteBook($id)
+    {
+        $sql = "DELETE FROM books WHERE id = $id";
+        $this->db->exec($sql);
+        header("Location:./index.php");
+    }
 }

@@ -15,6 +15,23 @@ class BookController
 
     public function add()
     {
+        include './views/add.php';
+    }
+    public function create()
+    {
+        // $_POST = [
+        //     "add" => true,
+        //     "TITLE " => 'GHC',
+        //     "DATE" => '2020-01-01',
+        //     "Date" => "01/01/2024"
+        //     "AUTHOR" => 'GHC',
+        //     "PUBLISHER" => 'GHC',
+        //     ]
+        // $_FILES['image'] =[
+        //     'name' => 'ghc.png',
+        //     'tmp_name' => 'C:\Users\Asm\Desktop\asm\asm\public\img\ghc.png',
+        //     "error" =>0,
+        // ]
         if (isset($_POST['add'])) {
             $title = $_POST['title'];
             $date = $_POST['date'];
@@ -27,5 +44,9 @@ class BookController
                 header('location:./index.php');
             }
         }
+    }
+    public function delete($id)
+    {
+        $this->BookModel->deleteBook($id);
     }
 }
