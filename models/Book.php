@@ -22,6 +22,26 @@ class Book
             return true;
         }
     }
+    public function editBook($title, $image, $date, $author, $publisher, $id)
+    {
+        if (isset($image)) {
+            $query = "UPDATE books SET title = '$title', cover_image = '$image', date = '$date', publisher = '$publisher', author = '$author' WHERE id = $id";
+        } else {
+            $query = "UPDATE books SET title = '$title', date = '$date', publisher = '$publisher', author = '$author' WHERE id = $id";
+        }
+        echo $query;
+
+        if ($this->db->exec($query)) {
+            return true;
+        }
+    }
+
+    public function getBookById($id)
+    {
+        $query = "SELECT * FROM books WHERE id = $id";
+        $results = $this->db->query($query)->fetch();
+        return $results;
+    }
     public function deleteBook($id)
     {
         $sql = "DELETE FROM books WHERE id = $id";

@@ -22,18 +22,18 @@
         </thead>
         <tbody>
             <?php foreach ($books as $book) : ?>
-            <tr>
-                <td><?= $book['id'] ?></td>
-                <td><?= $book['title'] ?></td>
-                <td><img src="public/img/<?= $book['cover_image'] ?>" width="100" height="100" alt=""></td>
-                <td><?= $book['date'] ?></td>
-                <td><?= $book['author'] ?></td>
-                <td><?= $book['publisher'] ?></td>
-                <td>
-                    <a href="?action=update&id=<?= $book['id'] ?>">update</a>
-                    <a onclick="return confirm('Are you sure?')" href=" ?action=delete&id=<?= $book['id'] ?>">delete</a>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= $book['id'] ?></td>
+                    <td><?= $book['title'] ?></td>
+                    <td><img src="public/img/<?= $book['cover_image'] ?>" width="100" height="100" alt=""></td>
+                    <td><?= $book['date'] ?></td>
+                    <td><?= $book['author'] ?></td>
+                    <td><?= $book['publisher'] ?></td>
+                    <td>
+                        <a href="?action=update&id=<?= $book['id'] ?>">update</a>
+                        <a onclick="return confirm('Are you sure?')" href="?action=delete&id=<?= $book['id'] ?>">delete</a>
+                    </td>
+                </tr>
             <?php endforeach ?>
 
         </tbody>

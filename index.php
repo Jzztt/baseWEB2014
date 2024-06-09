@@ -18,6 +18,14 @@ switch ($action) {
         $id = $_GET['id'];
         $books = $bookController->delete($id);
         break;
+    case 'update':
+        $id = $_GET['id'];
+        $bookController->update($id);
+        break;
+    case 'edit':
+        $id = $_GET['id'];
+        $bookController->edit($id);
+        break;
     default:
         echo "action not found";
         break;
